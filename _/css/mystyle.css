@@ -4655,7 +4655,7 @@ label.error {
 }
 /* Footer */
 footer {
-  background: #17222D;
+  background: #23374c;
   overflow: hidden;
   padding-top: 70px;
 }
@@ -4679,11 +4679,12 @@ footer {
   background-size: cover;
 }
 .footer-section {
-  font-size: 13px;
-  z-index: 100;
-  color: #ffffff;
-  position: relative;
-  top: 150px;
+    display: block;
+    font-size: 13px;
+    z-index: 100;
+    color: #ffffff;
+    position: relative;
+    height: 200px;
 }
 .footer-section .nav-pills {
   position: relative;
@@ -9291,4 +9292,14 @@ a.md-trigger {
 .desc-selector {
     width: 60%;
     margin: 0 auto;
+}
+
+.business-img {
+    display: block;
+    overflow: hidden;
+}
+
+.card {
+    width:100%;
+    
 }

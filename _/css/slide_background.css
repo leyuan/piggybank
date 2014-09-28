@@ -1,20 +1,20 @@
 .slide-bg1 {
-    background:url(../images/home3.jpg);
+    background:url(../images/home_city.jpg);
     background-repeat:no-repeat;
     background-size: cover;
 }
 .slide-bg2 {
-    background:url(../images/home6.jpg);
+    background:url(../images/home_people.jpg);
     background-repeat:no-repeat;
     background-size: cover;
 }
 .slide-bg3 {
-    background:url(../images/home1.jpg);
+    background:url(../images/home_office.jpg);
     background-repeat:no-repeat;
     background-size: cover;
 }
 .slide-bg4 {
-    background:url(../images/home2.jpg);
+    background:url(../images/home_mall.jpg);
     background-repeat:no-repeat;
     background-size: cover;
 }
