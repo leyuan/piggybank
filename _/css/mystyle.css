@@ -4684,7 +4684,7 @@ footer {
     z-index: 100;
     color: #ffffff;
     position: relative;
-    height: 200px;
+    height: 100px;
 }
 .footer-section .nav-pills {
   position: relative;
@@ -9301,5 +9301,16 @@ a.md-trigger {
 
 .card {
     width:100%;
+    
+}
+
+.piggy-social-icon {
+    margin-left: 20px;
+    margin-right: 20px;
+    width:32px;
+    height: 32px;
+}
+
+.piggy-social {
     
 }
