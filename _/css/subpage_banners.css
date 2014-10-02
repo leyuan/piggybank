@@ -2,7 +2,7 @@
     background:url(../images/header_subpage_bg.jpg) no-repeat;
 }
 .portfolio-4-col-banner, .portfolio-5-col-banner {
-    background:url(../images/business_bg.png) no-repeat;
+    background:url(../images/business_bg.jpg) no-repeat;
 }
 .contact-banner {
     background:url(../images/contact_bg.jpg) no-repeat;    
@@ -11,5 +11,6 @@
 	background:url(../images/shop/banner_detail_product.jpg) no-repeat;
 }
 .checkout-banner {
-    background:url(../images/checkout-bg.png) no-repeat;    
+    background:url(../images/checkout-bg.png) no-repeat;  
+    background-size: contain !important;
 }

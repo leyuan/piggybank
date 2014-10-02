@@ -608,7 +608,9 @@ a.search_btn :hover {
 .slide-logo,
 .slide-button {
   display: block;
+    position: relative;
   text-align: center;
+    z-index: -1;
 }
 /* Highlights */
 .grid-icon-container {
@@ -2434,7 +2436,6 @@ a.search_btn :hover {
   left: 100%;
 }
 .subpage-banner {
-  background-size: contain!important;
   background-attachment: fixed!important;
   height: 285px;
   width: 100%;
@@ -2490,7 +2491,6 @@ a.search_btn :hover {
   line-height: 1.5em;
 }
 .blog-single-post .subpage-banner {
-  background: url(../images/banner_single_post.jpg) 50% 0 no-repeat;
   background-size: cover !important;
   background-attachment: initial!important;
   height: 600px;
@@ -4465,6 +4465,8 @@ body.page-404 .centered .button .btn-back:active {
   padding: 2px 6px;
 }
 .contact_page {
+    overflow: hidden;
+    margin-bottom: 200px;        
   padding-bottom: 0px;
 }
 /* Contact Form Blog */
@@ -4661,17 +4663,15 @@ footer {
 }
 @media (max-width: 1200px) {
   footer {
-    padding-top: 0px;
+    padding-top: 40px;
   }
 }
 @media (min-width: 480px) and (max-width: 767px) {
   footer {
-    margin-top: -80px;
   }
 }
 @media (max-width: 479px) {
   footer {
-    margin-top: -120px;
   }
 }
 .ss-style-doublediagonal::after {
@@ -9237,10 +9237,9 @@ a.md-trigger {
 .temp {
     position:  absolute !important;  
     display: block;
-    margin-top: 80px !important;
+    margin-top: 30px !important;
     top: 0px !important;
     right: 10% !important;
-    margin-right: -250px !important;
     width: 300px;
     height: 100px;
     overflow: hidden;   
@@ -9252,12 +9251,13 @@ a.md-trigger {
 }
 
 .btn-piggy {
+    position: relative;
+    z-index: 1;    
   border-radius: 3px;
     border-color: #fff;
-  padding: 10px 20px;
+  padding-top: 10px;
   color: #fff;
   font-weight: 300;
-  text-transform: uppercase;
   cursor: pointer;
   background-color: transparent ;
   -webkit-transition: background-color 0.3s;
@@ -9297,10 +9297,12 @@ a.md-trigger {
 .business-img {
     display: block;
     overflow: hidden;
+    padding-top:20px;
+    padding-bottom: 20px;
 }
 
 .card {
-    width:100%;
+    width: 70%;
     
 }
 
@@ -9313,4 +9315,8 @@ a.md-trigger {
 
 .piggy-social {
     
+}
+
+.nav-last {
+    padding-left: 30px; 
 }

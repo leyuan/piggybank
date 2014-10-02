@@ -27,22 +27,29 @@
 <script>
     $("document").ready(function(){
         $("#submit-btn").click(function(){
-            var url = "localhost:8080/git/piggybank/ajax/order.php"; // the script where you handle the form input.
-            $.ajax({
-                    type: "POST",
-                    url: "http://localhost:8080/git/piggybank/ajax/order.php",
-                    data: $("#dt-checkout-form").serialize(), // serializes the form's elements.
-                    success: function(data)
-                    {
-                        $("#ajax-data").show();
-                        $("#ajax-data").html(data);
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                      alert(xhr.status);
-                      alert(xhr.responseText);
-                      alert(thrownError);
-                    }
-            });
+            if($("#billing_first_name").val() && $("#billing_last_name").val() && $("#billing_country").val() && $("#billing_address_1").val() && $("#billing_postcode").val() && $("#billing_email").val() && $("#billing_phone").val())
+            {
+                var url = "localhost:8080/git/piggybank/ajax/order.php"; // the script where you handle the form input.
+                $.ajax({
+                        type: "POST",
+                        url: "http://localhost:8080/git/piggybank/ajax/order.php",
+                        data: $("#dt-checkout-form").serialize(), // serializes the form's elements.
+                        success: function(data)
+                        {
+                            $("#ajax-data").show();
+                            $("#ajax-data").html(data);
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                          alert(xhr.status);
+                          alert(xhr.responseText);
+                          alert(thrownError);
+                        }
+                });
+            } else {
+                $("#ajax-data").show();
+                data = "<span>* Please fill in the requested fields.<span>";
+                $("#ajax-data").html(data);
+            }
         });     
     });
     
@@ -66,13 +73,7 @@
 				<div class="row header-group">
 					<div class="col-sm-8 col-sm-12">
 						<h1>Checkout</h1>
-					</div>
-					<div class="col-xs-4 hidden-xs">
-						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li class="active">Checkout</li>
-						</ol>			
-					</div>		
+					</div>	
 				</div>
 			</div>	
 		</section>
@@ -222,7 +223,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <div id="ajax-data" class="text-center" style="padding-top: 150px;color:#fa225b;font-size: 25px;display:hidden;"></div>
+                        <div id="ajax-data" class="text-center" style="padding-top: 40px;color:#fa225b;font-size: 25px;display:hidden;"></div>
                     </div>
                 </div>
             </div>

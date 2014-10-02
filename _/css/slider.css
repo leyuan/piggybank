@@ -313,24 +313,25 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   }
 }
 #sequence .slide-logo {
-  top: 60%;
-  left: 42%;
-  margin-left: -59px;
-  z-index: 1;
-  opacity: 0;
-  margin-top: -170px;
-  width: 300px;
-  /*Logo Width*/
-  -webkit-transition-property: left top;
-  -moz-transition-property: left top;
-  -ms-transition-property: left top;
-  -o-transition-property: left top;
-  transition-property: left top;
-  -webkit-transition-delay: 0.6s;
-  -moz-transition-delay: 0.6s;
-  -ms-transition-delay: 0.6s;
-  -o-transition-delay: 0.6s;
-  transition-delay: 0.6s;
+    
+    top: 60%;
+    left: 50%;
+    margin-left: -150px;
+    z-index: 1;
+    opacity: 0;
+    margin-top: -170px;         
+    width: 300px;
+    /*Logo Width*/
+    -webkit-transition-property: left top;
+    -moz-transition-property: left top;
+    -ms-transition-property: left top;
+    -o-transition-property: left top;
+    transition-property: left top;
+    -webkit-transition-delay: 0.6s;
+    -moz-transition-delay: 0.6s;
+    -ms-transition-delay: 0.6s;
+    -o-transition-delay: 0.6s;
+    transition-delay: 0.6s;
 }
 #sequence .animate-in .slide-logo {
   opacity: 1;
