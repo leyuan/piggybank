@@ -11,6 +11,5 @@
 	background:url(../images/shop/banner_detail_product.jpg) no-repeat;
 }
 .checkout-banner {
-    background:url(../images/checkout-bg.png) no-repeat;  
-    background-size: contain !important;
+    background:url(../images/checkout-bg.jpg) no-repeat;  
 }

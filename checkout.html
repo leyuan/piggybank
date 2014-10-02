@@ -27,17 +27,18 @@
 <script>
     $("document").ready(function(){
         $("#submit-btn").click(function(){
-            if($("#billing_first_name").val() && $("#billing_last_name").val() && $("#billing_country").val() && $("#billing_address_1").val() && $("#billing_postcode").val() && $("#billing_email").val() && $("#billing_phone").val())
+            if($("#billing_first_name").val() && $("#billing_last_name").val() && $("#billing_country").val() && $("#billing_address_1").val() && $("#billing_postcode").val() && $("#billing_email").val() && $("#billing_city").val() && $("#billing_phone").val())
             {
                 var url = "localhost:8080/git/piggybank/ajax/order.php"; // the script where you handle the form input.
                 $.ajax({
                         type: "POST",
-                        url: "http://localhost:8080/git/piggybank/ajax/order.php",
+                        url: "ajax/order.php",
                         data: $("#dt-checkout-form").serialize(), // serializes the form's elements.
                         success: function(data)
                         {
                             $("#ajax-data").show();
                             $("#ajax-data").html(data);
+                            $('#submit-btn').attr("disabled", true);
                         },
                         error: function (xhr, ajaxOptions, thrownError) {
                           alert(xhr.status);
