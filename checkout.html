@@ -29,15 +29,16 @@
         $("#submit-btn").click(function(){
             if($("#billing_first_name").val() && $("#billing_last_name").val() && $("#billing_country").val() && $("#billing_address_1").val() && $("#billing_postcode").val() && $("#billing_email").val() && $("#billing_city").val() && $("#billing_phone").val())
             {
-                var url = "localhost:8080/git/piggybank/ajax/order.php"; // the script where you handle the form input.
                 $.ajax({
                         type: "POST",
                         url: "ajax/order.php",
                         data: $("#dt-checkout-form").serialize(), // serializes the form's elements.
                         success: function(data)
                         {
+                            alert(data);
                             $("#ajax-data").show();
                             $("#ajax-data").html(data);
+                            $("#ajax-data").append("<br> <a href='index.html'><u style='font-size:15px;'>piggybank</u></a>");
                             $('#submit-btn').attr("disabled", true);
                         },
                         error: function (xhr, ajaxOptions, thrownError) {
@@ -50,6 +51,7 @@
                 $("#ajax-data").show();
                 data = "<span>* Please fill in the requested fields.<span>";
                 $("#ajax-data").html(data);
+                $("#ajax-data").append("<br> <a href='index.html'><u style='font-size:15px;'>piggybank</u></a>");
             }
         });     
     });
@@ -61,6 +63,15 @@
         document.getElementById("cardtotal").innerHTML = new_total;
         document.getElementById("billing_form_quantity").value = quantity;
         document.getElementById("billing_form_amount").value = new_total;
+    }
+    
+    function check_update2() {
+        var quantity = document.getElementById("quantity2").value;
+        var new_total = quantity * 500;
+        document.getElementById("cardquant2").innerHTML = quantity;
+        document.getElementById("cardtotal2").innerHTML = new_total;
+        document.getElementById("billing_form_quantity").value = quantity;
+        document.getElementById("billing_form_amount").value = new_total;        
     }
     
 </script>
@@ -102,7 +113,7 @@
                         </header>
                     </div>	
                 </div>
-                <div class="row" style="padding-bot: 90px;">
+                <div class="row desktop-desc" style="padding-bot: 90px;">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
                         <p> Quantity </p>
                         <select class="form-control desc-selector" onchange="check_update()" id="quantity">
@@ -126,9 +137,44 @@
                         <p> 
                             Price per Card: <span class="">500</span><br>
                             Quantity: <span id="cardquant">1</span> <br>
-                            <span style="color:#fa225b;">Total( INR ): <span id="cardtotal">500</span>
+                            <span style="color:#fa225b;">Total (INR): <span id="cardtotal">500</span>
                         </p>
                     </div>
+                </div>
+                
+                <!-- Mobile Description Form -->                
+                <div class="row hidden-desc">
+                    <div class="hd-row">
+                        <span class="hd-element">Quantity</span>
+                        <span class="hd-element">
+                            <select class="form-control desc-selector" onchange="check_update2()" id="quantity2">
+                                <option value="1">1</option>
+                                <option value="2" >2</option>
+                                <option value="3" >3</option>
+                                <option value="4" >4</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="hd-row">
+                        <span class="hd-element">
+                            <p>Description</p>
+                        </span>
+                        <span class="hd-element">
+                            <p>Early Exclusive Card ( Rs. <strike>1000</strike> 500)</p>
+                        </span>
+                    </div>
+                    <div class="hd-row">
+                        <span class="hd-element">
+                            <p>Checkout</p>
+                        </span>
+                        <span class="hd-element">
+                            <p> 
+                                Price per Card: <span class="">500</span><br>
+                                Quantity: <span id="cardquant2">1</span> <br>
+                                <span style="color:#fa225b;">Total (INR): <span id="cardtotal2">500</span>
+                            </p>
+                        </span>
+                    </div>                    
                 </div>
                 
                 <div style="display:block; width:100%; height: 100px;">
@@ -150,7 +196,7 @@
 							<div class="form-group col-xs-12">
 								<label for="billing_country">Country <abbr class="required" title="required">*</abbr></label>
 								<select class="form-control" name="billing_country" id="billing_country">
-									<option value="">Select a country&hellip;</option><option value="CA" >Canada</option><option value="IN" >India</option><option value="US" >United States</option>
+									<option value="">Select a country&hellip;</option><option value="IN" >India</option>
 								</select>
 							</div>
 						</div>
@@ -189,13 +235,15 @@
 						<div class="row">
 							<div class="form-group col-xs-12">
 								<label for="billing_city" class="">Town / City <abbr class="required" title="required">*</abbr></label>
-								<input type="text" class="form-control" name="billing_city" id="billing_city" placeholder=""  value="" autocomplete="off" />
+								<select class="form-control" name="billing_city" id="billing_city">
+									<option value="">Select a city&hellip;</option><option value="IN" >Delhi NCR</option>
+								</select>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="form-group col-xs-6">
-								<label for="billing_email" class="">Email Address <abbr class="required" title="required">*</abbr></label>
+								<label for="billing_email" class="">Email<abbr class="required" title="required">*</abbr></label>
 								<input type="text" class="form-control" name="billing_email" id="billing_email" value="" autocomplete="on" placeholder="" />
 							</div>
 							<div class="form-group col-xs-6">
@@ -213,7 +261,12 @@
                         
                 <div class="row">
                     <div class="form-group col-xs-12">
-                        <p>* Cash on Delivery</p>
+                        <p>Payment is via Cash on Delivery</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="ajax-data" class="text-center" style="color:#fa225b;font-size: 25px;display:hidden;"></div>
                     </div>
                 </div>
                         
@@ -222,11 +275,7 @@
                         <button type="button" class="btn-send" id="submit-btn">Place Order</button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div id="ajax-data" class="text-center" style="padding-top: 40px;color:#fa225b;font-size: 25px;display:hidden;"></div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

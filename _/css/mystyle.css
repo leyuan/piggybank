@@ -4465,8 +4465,7 @@ body.page-404 .centered .button .btn-back:active {
   padding: 2px 6px;
 }
 .contact_page {
-    overflow: hidden;
-    margin-bottom: 200px;        
+    overflow: hidden;      
   padding-bottom: 0px;
 }
 /* Contact Form Blog */
@@ -9320,3 +9319,41 @@ a.md-trigger {
 .nav-last {
     padding-left: 30px; 
 }
+
+.ajax-success {
+    background-color: green;
+    
+}
+
+
+.hd-row {
+    display: block;
+    overflow: hidden;
+    margin-top: 10px; 
+    width: 100%;
+}
+
+.hd-element {
+    float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 50%;
+    text-align: center;
+}
+
+.hidden-desc {
+    display: none;
+}
+
+@media only screen
+and (max-width: 749px)
+{
+    .desktop-desc {
+        display: none;
+    }
+    
+    .hidden-desc {
+        display: block;    
+    }    
+}
+
